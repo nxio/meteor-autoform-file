@@ -1,43 +1,44 @@
-Autoform File
+autoform-file
 =============
 
-To do:
-* Integrate `cfs:ui`
+A smart package for meteor that allows uploading and managing files with [aldeed:autoform](https://github.com/aldeed/meteor-autoform), along with a progress bar. Uses Bootstrap-3 for UI elements.
 
-Upload and manage files with #autoForm.
+The examples provided below are for illustration only; they are insecure as anyone can upload / download every file.
 
-Examples written in coffeescript and make for an insecure app; anyone can upload / download any file.
-
-1) Install `meteor add yogiben:autoform-file`
+1) Install `meteor add naxio:autoform-file`
 
 2) Create your collectionFS (See [collectionFS](https://github.com/CollectionFS/Meteor-CollectionFS))
 ```
-@Images = new FS.Collection("images",
+Images = new FS.Collection("images",
   stores: [new FS.Store.GridFS("images", {})]
 )
 ```
 3) Make sure the correct allow rules & subscriptions are set up
 ```
-Images.allow
-  insert: (userId, doc) ->
-    true
-  update: (userId, doc, fieldNames, modifier) ->
-    true
-  download: (userId)->
-    true
+Images.allow({
+  insert: function(userId, doc){
+    return true;
+  },
+  update: function(userId, doc, fieldNames, modifier){
+    return true;
+  },
+  download: function(userId){
+    return true;
+  }
 ```
 and
 ```
-Meteor.publish 'images', ->
-  Images.find()
+Meteor.publish('images', function(){
+  return Images.find();
+}
 ```
-and in your router.coffee
+and in your router.js (inside `Router.map`):
 ```
-  @route "profile",
-    waitOn: ->
-      [
-        Meteor.subscribe 'images'
-      ]
+  this.route("profile", {
+    waitOn: function(){
+      return Meteor.subscribe('images');
+    }
+  );
 ```
 4) Create an autoForm template
 ```

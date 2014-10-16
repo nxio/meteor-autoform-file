@@ -1,22 +1,14 @@
 Package.describe({
-  summary: "Upload and manage files easily with AutoForm and CollectionFS",
-  version: "0.0.1",
-  git: "http://github.com/yogiben/autoform-file.git"
+    name: 'naxio:autoform-file',
+    summary: "Upload and manage files easily with AutoForm and CollectionFS",
+    version: "0.0.2",
+    git: "http://github.com/naxio/autoform-file.git"
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('METEOR@0.9.1.1');
-
-  api.use(
-    [
-    'coffeescript',
-    'underscore',
-    'templating',
-    'less'
-    ],
-    'client');
-
-  api.add_files('lib/client/autoform-file.html', 'client');
-  api.add_files('lib/client/autoform-file.less', 'client');
-  api.add_files('lib/client/autoform-file.coffee', 'client');
+    api.versionsFrom('METEOR@0.9.4');
+    api.use(['templating'], 'client');
+    api.add_files('lib/client/autoform-file.html', 'client');
+    api.add_files('lib/client/autoform-file.css', 'client');
+    api.add_files('lib/client/autoform-file.js', 'client');
 });

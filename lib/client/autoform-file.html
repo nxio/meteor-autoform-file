@@ -7,24 +7,29 @@
 			{{#with fileUpload name collection label}}
 				{{> UI.dynamic template=template data=data}}
 			{{/with}}
-			<br/>
-			<a class="file-upload-clear" file-input="{{name}}"><i class="fa fa-times"></i> Remove</a>
+			<a class="file-upload-clear" file-input="{{name}}"><span class="glyphicon glyphicon-remove"></span></a>
 			{{else}}
-			<label for="file-{{name}}" class="btn btn-default">
-				Choose file
-				<input class="hidden" id="file-{{name}}" file-input="{{name}}" collection="{{collection}}" type="file" />
-			</label>
+            <div class="row">
+                <div class="col-sm-2">
+			        <label id="file-upload-label-{{name}}" for="file-{{name}}" class="btn btn-default">
+				        Choose file
+				        <input class="hidden" id="file-{{name}}" file-input="{{name}}" collection="{{collection}}" type="file" />
+			        </label>
+                </div>
+                <div id="file-upload-progress-{{name}}" style="display: none;" class="col-sm-3">
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                          0% complete
+                      </div>
+                    </div>
+                </div>
+            </div>
 			{{/if}}
 			<div class="">{{> afQuickField name=name}}</div>
 		</div>
 </template>
 
 <template name="fileThumbIcon">
-	<a class="btn btn-default" target="_blank">
-		<i class="fa fa-{{icon}}"></i> {{src}}
-	</a>
+	<span class="glyphicon glyphicon-{{icon}}"></span> {{name}}
 </template>
 
-<template name="fileThumbImg">
-	<img src="{{src}}" alt="" class="img-fileUpload-thumbnail img-thumbnail img-rounded">
-</template>
