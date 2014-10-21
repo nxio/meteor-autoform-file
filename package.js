@@ -1,8 +1,8 @@
 Package.describe({
     name: 'naxio:autoform-file',
     summary: "Upload and manage files easily with AutoForm and CollectionFS",
-    version: "0.0.2",
-    git: "http://github.com/naxio/autoform-file.git"
+    version: "0.0.3",
+    git: "http://github.com/nxio/meteor-autoform-file.git"
 });
 
 Package.onUse(function(api) {

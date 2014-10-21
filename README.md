@@ -3,6 +3,8 @@ autoform-file
 
 A smart package for meteor that allows uploading and managing files with [aldeed:autoform](https://github.com/aldeed/meteor-autoform), along with a progress bar. Uses Bootstrap-3 for UI elements.
 
+This package has been built on top of the (yogiben:autoform-file)[https://github.com/yogiben/meteor-autoform-file] smart package. All dependencies of the initial package have been removed and the Bootstrap-3-based progress bar has been added.
+
 The examples provided below are for illustration only; they are insecure as anyone can upload / download every file.
 
 1) Install `meteor add naxio:autoform-file`
