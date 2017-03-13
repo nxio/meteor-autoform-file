@@ -49,7 +49,7 @@ and in your router.js (inside `Router.map`):
 	<button type="submit" class="btn btn-primary">Update</button>
 {{/autoForm}}
 ```
-The `afFieldUpload` is the first part of this tutorial unique to this package.
+The `afFileUpload` is the first part of this tutorial unique to this package.
 
 The `name` property is the field name as per your [collection2](https://github.com/aldeed/meteor-collection2) schema.
 
